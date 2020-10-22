@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h3>欢迎光临！</h3>
+    <hr>
+    <router-link to="/first">访问系统皮卡丘</router-link>
+    <router-link to="/second">访问系统hello kitty</router-link>
+    <router-view></router-view>
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    let first = {
+        template:`
+            <div>皮卡丘</div>
+        `,
+    }
+    let second={
+        template:`
+            <div>hello kitty</div>
+        `,
+    }
+    let myRouter = new VueRouter({
+        routes:[
+            {path:"/",component:second},
+            {path:"/first",component:first},
+            {path:"/second",component:second},
+        ]
+    })
+
+    new Vue({
+        el:"#app",
+        data:{},
+        router:myRouter
+    })
+</script>
+</body>
+</html>
